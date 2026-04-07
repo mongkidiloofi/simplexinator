@@ -28,7 +28,7 @@
     </thead>
     <tbody>
       {#each tableau as row, i}
-        <tr>
+        <tr class:obj-row={i === tableau.length - 1}>
           <td class="row-label">
             {#if i < tableau.length - 1}
               {basicVars[i] !== undefined ? `x${basicVars[i] + 1}` : ''}
@@ -40,7 +40,6 @@
               class:pivot-row={isPivotRow(i)}
               class:pivot-cell={isPivotElement(i, j)}
               class:rhs-col={j === row.length - 1}
-              class:obj-row={i === tableau.length - 1}
             >
               {Number.isInteger(cell) ? cell : cell.toFixed(2)}
             </td>

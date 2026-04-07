@@ -166,6 +166,11 @@
     <div class="card">
       <h2>Initial Canonical Form</h2>
       <p class="help-text">Enter rows separated by <code>;</code> and values by <code>,</code>. Last column is RHS. Last row is Objective Function.</p>
+      
+      <div class="disclaimer">
+        <strong>Maximization Only:</strong> Simplexinator is designed for maximization problems. To solve a minimization problem, simply flip the signs of your objective function coefficients (e.g., minimize <code>Z</code> becomes maximize <code>-Z</code>).
+      </div>
+
       <div class="input-group">
         <textarea bind:value={input} placeholder="1,2,1,0,0,4; 2,1,0,1,0,5; -3,-2,0,0,1,0"></textarea>
         {#if error}
@@ -261,7 +266,17 @@
   .help-text {
     font-size: 0.9rem;
     color: #606770;
+    margin-bottom: 0.5rem;
+  }
+
+  .disclaimer {
+    font-size: 0.85rem;
+    color: #5f6368;
+    background-color: #f8f9fa;
+    padding: 0.75rem;
+    border-left: 4px solid #1a73e8;
     margin-bottom: 1rem;
+    border-radius: 0 4px 4px 0;
   }
 
   textarea {
